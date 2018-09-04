@@ -36,11 +36,11 @@ userRouter.get('/:id?', function(req, res) {
 userRouter.post('/', function(req, res) {
     /* Récupération des parametres */
     const surname = req.body.surname;
-    const login = req.body.login || "log";
-    const password = req.body.password || "pass";
+    const login = req.body.login;
+    const password = req.body.password;
 
     // Si les parametres obligatoires ne sont pas tous remplis
-    if( surname === undefined) {
+    if( surname === undefined, login === undefined || password === undefined ) {
         // Renvoi d'une erreur
         res.status(400).json({
             success : false,
